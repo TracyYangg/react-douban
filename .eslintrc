@@ -1,3 +1,18 @@
 {
-    "extends": "react-app"
+  "extends": ["react-app"],
+  "parser": "babel-eslint",
+  "rules": {
+    "no-multi-spaces": "warn",
+    "import/no-unresolved": "warn",
+    "react/jsx-space-before-closing": "warn", // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行
+    "jsx-quotes": "warn",
+    "react/jsx-closing-bracket-location": "warn", // 遵循JSX语法缩进/格式
+    "react/jsx-boolean-value": "warn", // 如果属性值为 true, 可以直接省略
+    "react/no-string-refs": "warn", // 总是在Refs里使用回调函数
+    "react/self-closing-comp": "warn", // 对于没有子元素的标签来说总是自己关闭标签
+    "react/sort-comp": "warn", // 按照具体规范的React.createClass 的生命周期函数书写代码
+    "react/jsx-pascal-case": "warn", // React模块名使用帕斯卡命名，实例使用骆驼式命名
+    "import/extensions": "warn",
+    "react/no-unused-prop-types": "warn"
   }
+}
