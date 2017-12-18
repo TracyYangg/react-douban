@@ -1,10 +1,8 @@
+//@flow
+
 import React from "react";
 
-// type Props = {
-//   child?: any
-// };
-
-const Loading = ({ ...args }) => {
+const Loading = () => {
   return <div>Loading...</div>;
 };
 
