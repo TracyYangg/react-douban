@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route,Redirect } from "react-router-dom";
 import routerEnable from "./routerEnable";
 
 const RouteComponent = ({ component: Component, ...rest,props }) => {
@@ -8,8 +8,8 @@ const RouteComponent = ({ component: Component, ...rest,props }) => {
 
 
 
-const AsyncTabs = routerEnable(() => {
-  return import("./tabs/Tab");
+const AsyncHome = routerEnable(() => {
+  return import("./home/Home");
 });
 const AsyncNotPage = routerEnable(()=>{
   return import('./not-page/NotPage')
@@ -18,7 +18,8 @@ const AsyncNotPage = routerEnable(()=>{
 export default ()=>{
   return (
     <Switch>
-      <RouteComponent path="/tabs" component={AsyncTabs} exact />
+      <Redirect exact path="/" to="/home" />
+      <RouteComponent path="/home" component={AsyncHome} exact />
       <RouteComponent component={AsyncNotPage} />
     </Switch>
   )

@@ -15,17 +15,17 @@ app.all("*", function(req, res, next) {
   res.set("Access-Control-Allow-Methods", "GET");
   res.set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
   // res.set('Access-Control-Allow-Max-Age', 3600);
-  if ("OPTIONS" == req.method) return res.send(200);
+  if ("OPTIONS" === req.method) return res.send(200);
   next();
 });
 
-// app.get("/movie/:type", function(req, res) {
-//   var sreq = request.get(HOST + req.originalUrl);
-//   sreq.pipe(res);
-//   sreq.on("end", function(error, res) {
-//     console.log("end");
-//   });
-// });
+app.get("/movie/:type", function(req, res) {
+  var sreq = request.get(HOST + req.originalUrl);
+  sreq.pipe(res);
+  sreq.on("end", function(error, res) {
+    console.log("end");
+  });
+});
 
 // app.get("/movie/subject/:id", function(req, res) {
 //   var sreq = request.get(HOST + req.originalUrl);
@@ -42,14 +42,6 @@ app.all("*", function(req, res, next) {
 //     console.log("end");
 //   });
 // });
-
-app.get("/movie/nowplaying", function(req, res) {
-  var sreq = request.get(HOST + req.originalUrl);
-  sreq.pipe(res);
-  sreq.on("end", function(error, res) {
-    console.log("11111");
-  });
-});
 
 app.listen(8081, function() {
   console.log("HTTP Server is running in http://127.0.0.1:8081");
