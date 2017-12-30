@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin createSpacing ($prefix) {
+  @for $i from 0 to 10 {
+    .#{$prefix}-#{$i*5} {
+      #{$prefix}: #{$i*5}px;
+    }
+    .#{$prefix}-vertical-#{$i*5} {
+      #{$prefix}: #{$i*5}px 0;
+    }
+    .#{$prefix}-horizontal-#{$i*5} {
+      #{$prefix}: 0 #{$i*5}px;
+    }
+    .#{$prefix}-left-#{$i*5} {
+      #{$prefix}-left: #{$i*5}px;
+    }
+    .#{$prefix}-right-#{$i*5} {
+      #{$prefix}-right: #{$i*5}px;
+    }
+    .#{$prefix}-top-#{$i*5} {
+      #{$prefix}-top: #{$i*5}px;
+    }
+    .#{$prefix}-bottom-#{$i*5} {
+      #{$prefix}-bottom: #{$i*5}px;
+    }
+  }
+}
+
+@include createSpacing("padding");
+@include createSpacing("margin");

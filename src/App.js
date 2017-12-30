@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import configStore from "./configStore";
 import Route from "./routers/Route";
 import styleStore from "./style";
+import "./default.scss";
 
 const store = configStore();
 

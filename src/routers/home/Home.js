@@ -1,25 +1,33 @@
 import React, { Component } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { getNowPlaying } from "./api";
-import { Loading, Text } from "../../components";
+import { Loading, Text, Flex } from "../../components";
+import "./home.scss";
 
 class Home extends Component {
   componentDidMount() {
+    console.log(11111111);
     getNowPlaying();
   }
 
   render() {
     return (
-      <Tabs>
-        <TabList>
+      <Tabs className="home ">
+        <TabList className="tab-list margin-0 padding-vertical-15">
           <Tab>
-            <Text weight="bolder">热映</Text>
+            <Flex justifyContent="center">
+              <Text color="primaryColor">热映</Text>
+            </Flex>
           </Tab>
           <Tab>
-            <Text>找片</Text>
+            <Flex justifyContent="center">
+              <Text>找片</Text>
+            </Flex>
           </Tab>
           <Tab>
-            <Text>我的</Text>
+            <Flex justifyContent="center">
+              <Text>我的</Text>
+            </Flex>
           </Tab>
         </TabList>
 

@@ -12,7 +12,7 @@ const AsyncHome = routerEnable(() => {
   return import("./home/Home");
 });
 const AsyncNotPage = routerEnable(()=>{
-  return import('./not-page/NotPage')
+  return import('./not-page/NotPage');
 })
 
 export default ()=>{
