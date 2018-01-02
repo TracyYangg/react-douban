@@ -1,6 +1,6 @@
 const styleStore = {
   primaryColor: "#289DFF",
-  blackColor: "#3D4245"
+  blackColor: "#404040"
 };
 
 export default styleStore;
