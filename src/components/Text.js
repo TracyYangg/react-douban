@@ -18,6 +18,14 @@ const StyleSpan = styled.span`
       `
     );
   }};
+  ${({ size, theme }) => {
+    return (
+      size &&
+      css`
+        font-size: ${theme[size] || size};
+      `
+    );
+  }};
 `;
 
 type Props = {
@@ -31,7 +39,8 @@ const Text = ({ ...args }: Props) => {
 };
 
 Text.defaultProps = {
-  color: "blackColor"
+  color: "blackColor",
+  size: "standard"
 };
 
 export default Text;

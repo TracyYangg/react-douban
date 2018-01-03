@@ -57,7 +57,7 @@ const addInterceptors = api => {
 
 export const api = addInterceptors(
   axios.create({
-    baseURL: "http://localhost:8081",
+    baseURL: "http://localhost:4000",
     paramsSerializer,
     withCredentials: false
   })
