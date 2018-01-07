@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { getNowPlaying } from "./api";
-import { Loading, Text, Flex, Icon } from "../../components";
+import { Text, Flex, Icon } from "../../components";
 import { homeList } from "./constants";
 import "./home.scss";
+import HotPlay from "./hotPlay/HotPlay";
 
 class Home extends Component {
   constructor(props) {
@@ -11,10 +12,6 @@ class Home extends Component {
     this.state = {
       index: 0
     };
-  }
-
-  componentDidMount() {
-    getNowPlaying();
   }
 
   render() {
@@ -50,7 +47,7 @@ class Home extends Component {
         </TabList>
 
         <TabPanel>
-          <Loading overly />
+          <HotPlay />
         </TabPanel>
         <TabPanel>
           <h2>Any content 2</h2>
