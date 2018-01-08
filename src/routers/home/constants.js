@@ -3,3 +3,5 @@ export const homeList = [
   { title: "找片", iconName: "search" },
   { title: "我的", iconName: "user" }
 ];
+
+export const NAME = "home";

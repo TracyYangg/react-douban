@@ -1,10 +1,10 @@
-import { call, put, fork, take } from "redux-saga/effects";
+import { call, put, fork } from "redux-saga/effects";
+import { takeEvery } from "redux-saga";
 import * as api from "../api";
 import * as actions from "./actions";
 
 function* runRequestSuggest() {
   const { data, error } = yield call(api.getNowPlaying);
-  console.log(yield call(api.getNowPlaying));
   if (data && !error) {
     yield put(actions.successSuggest({ data }));
   } else {
@@ -13,11 +13,7 @@ function* runRequestSuggest() {
 }
 
 function* handleRequestSuggest() {
-  while (true) {
-    yield take(actions.GET_PLAY_NOW);
-
-    yield fork(runRequestSuggest);
-  }
+  yield* takeEvery(actions.GET_PLAY_NOW_FETCH, runRequestSuggest);
 }
 
 export default function* rootSaga() {

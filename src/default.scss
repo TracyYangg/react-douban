@@ -29,5 +29,9 @@ body {
   }
 }
 
+.dividend {
+  border-bottom: 1px solid #999;
+}
+
 @include createSpacing("padding");
 @include createSpacing("margin");

@@ -26,11 +26,11 @@ export default function configureStore() {
       store.replaceReducer(nextRootReducer);
     });
 
-    module.hot.accept(() => {
-      const nextRootSagas = require("./sagas").default;
+    // module.hot.accept(() => {
+    //   const nextRootSagas = require("./sagas").default;
 
-      store.replaceReducer(nextRootSagas);
-    });
+    //   store.replaceReducer(nextRootSagas);
+    // });
   }
   return store;
 }
