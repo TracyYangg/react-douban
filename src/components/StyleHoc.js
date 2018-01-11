@@ -4,7 +4,7 @@ import styleStore from "../style";
 const StyleHoc = ComponentSection => {
   class StyleHoc extends Component {
     render() {
-      return <ComponentSection {...styleStore} />;
+      return <ComponentSection {...styleStore} {...this.props} />;
     }
   }
 

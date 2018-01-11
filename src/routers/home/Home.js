@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { getNowPlaying } from "./api";
 import { Text, Flex, Icon } from "../../components";
 import { homeList } from "./constants";
 import "./home.scss";
@@ -22,12 +21,16 @@ class Home extends Component {
           this.setState({ index: tabIndex });
         }}
       >
-        <TabList className="tab-list margin-0 padding-vertical-10">
+        <TabList className="tab-list padding-0 margin-0 footer-height">
           {homeList.map((item, index) => {
             const isEqualIndex = index === this.state.index;
             return (
               <Tab key={item.title}>
-                <Flex flexDirection="column">
+                <Flex
+                  flexDirection="column"
+                  style={{ height: "100%" }}
+                  justifyContent="center"
+                >
                   <Flex justifyContent="center">
                     <Icon
                       name={item.iconName}
@@ -53,7 +56,7 @@ class Home extends Component {
           <h2>Any content 2</h2>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <h2>Any content 3</h2>
         </TabPanel>
       </Tabs>
     );

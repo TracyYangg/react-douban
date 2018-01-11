@@ -23,7 +23,7 @@ const Flex = styled.div`
     return (
       alignItems &&
       css`
-        align-item: ${alignItems};
+        align-items: ${alignItems};
       `
     );
   }};
@@ -36,13 +36,22 @@ const Flex = styled.div`
       `
     );
   }};
+  ${({ fullHeight }) => {
+    return (
+      fullHeight &&
+      css`
+        height: 100%;
+      `
+    );
+  }};
 `;
 
 type Props = {
   flex?: number,
   flexDirection?: string,
   alignItems?: string,
-  justifyContent?: string
+  justifyContent?: string,
+  fullHeight?: boolean
 };
 
 const FlexContainer = ({ ...rest }: Props) => {

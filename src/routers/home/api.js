@@ -1,8 +1,8 @@
 import { api } from "../../utils/api";
 
-export const getNowPlaying = () => {
+export const getInTheaters = () => {
   return api
-    .get("/movie/nowplaying?apikey=0df993c66c0c636e29ecbb5344252a4a")
+    .get("/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a")
     .then(function(response) {
       return response;
     })

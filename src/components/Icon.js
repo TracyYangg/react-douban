@@ -25,8 +25,4 @@ const StyleIcon = styled(Icon)`
   }};
 `;
 
-Icon.defaultProps = {
-  size: "16px"
-};
-
 export default StyleIcon;

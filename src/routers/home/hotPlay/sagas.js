@@ -4,7 +4,7 @@ import * as api from "../api";
 import * as actions from "./actions";
 
 function* runRequestSuggest() {
-  const { data, error } = yield call(api.getNowPlaying);
+  const { data, error } = yield call(api.getInTheaters);
   if (data && !error) {
     yield put(actions.successSuggest({ data }));
   } else {
