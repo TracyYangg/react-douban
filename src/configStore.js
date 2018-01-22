@@ -10,6 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 let middleware = [sagaMiddleware];
 if (process.env.NODE_ENV !== "production") {
+  //开发环境添加redux-logger
   const createLogger = require("redux-logger").createLogger;
   middleware = [...middleware, createLogger()];
 }
@@ -17,20 +18,22 @@ if (process.env.NODE_ENV !== "production") {
 export default function configureStore() {
   const enhancer = compose(applyMiddleware(...middleware));
   const store = createStore(rootReducer, initialState, enhancer);
-  sagaMiddleware.run(rootSaga);
+  let sagaTask = sagaMiddleware.run(rootSaga);
   if (module.hot) {
-    // hot reload reducers
+    // ducks热加载
     module.hot.accept(() => {
       const nextRootReducer = require("./ducks").default;
 
       store.replaceReducer(nextRootReducer);
     });
-
-    // module.hot.accept(() => {
-    //   const nextRootSagas = require("./sagas").default;
-
-    //   store.replaceReducer(nextRootSagas);
-    // });
+    //sagas热更新
+    module.hot.accept(() => {
+      const nextRootSagas = require("./sagas").default;
+      sagaTask.cancel();
+      sagaTask.done.then(() => {
+        sagaTask = sagaMiddleware.run(nextRootSagas);
+      });
+    });
   }
   return store;
 }

@@ -15,10 +15,10 @@ const Icon = ({ name, ...rest }: Props) => {
 
 const StyleIcon = styled(Icon)`
   width: ${({ size }) => {
-    return size;
+    return size || "14px";
   }};
   height: ${({ size }) => {
-    return size;
+    return size || "14px";
   }};
   fill: ${({ color, theme }) => {
     return theme[color] || color;

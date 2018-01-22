@@ -5,5 +5,6 @@ export default {
   back: require("./back.svg"),
   star: require("./star.svg"),
   starEmpty: require("./starEmpty.svg"),
-  starHalf: require("./starHalf.svg")
+  starHalf: require("./starHalf.svg"),
+  searchHeader: require("./search_header.svg")
 };

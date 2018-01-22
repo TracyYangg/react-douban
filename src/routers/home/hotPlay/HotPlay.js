@@ -7,13 +7,13 @@ import {
   Loading,
   Text,
   Flex,
-  Header,
   StyleHoc,
   Icon,
   Button
 } from "../../../components";
 import * as actions from "./actions";
 import { selector, getNowPlayReducerName } from "./ducks";
+import HeaderSearch from "./HeaderSearch";
 
 type Props = {
   getNowPlay: Funtion,
@@ -76,14 +76,14 @@ class HotPlay extends Component {
   };
 
   render() {
-    const { selector } = this.props;
+    const { selector, headerHeight } = this.props;
     if (get(selector, "isFetching")) {
       return <Loading overly />;
     }
     const data = get(selector, "payload.data");
     return (
       <div>
-        <Header title="热播" showBack={false} />
+        <HeaderSearch headerHeight={headerHeight} />
         <div style={{ height: this.getScrollHeight(), overflow: "auto" }}>
           <meta name="referrer" content="never" />
           {get(data, "subjects.length") > 0 &&

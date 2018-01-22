@@ -1,5 +1,4 @@
-import { call, put, fork } from "redux-saga/effects";
-import { takeEvery } from "redux-saga";
+import { call, put, fork, takeEvery } from "redux-saga/effects";
 import * as api from "../api";
 import * as actions from "./actions";
 
@@ -13,7 +12,7 @@ function* runRequestSuggest() {
 }
 
 function* handleRequestSuggest() {
-  yield* takeEvery(actions.GET_PLAY_NOW_FETCH, runRequestSuggest);
+  yield takeEvery(actions.GET_PLAY_NOW_FETCH, runRequestSuggest);
 }
 
 export default function* rootSaga() {
