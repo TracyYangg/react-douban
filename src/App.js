@@ -11,11 +11,14 @@ const store = configStore();
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <ThemeProvider theme={styleStore}>
-          <Route />
-        </ThemeProvider>
-      </Provider>
+      <div>
+        <meta name="referrer" content="never" />
+        <Provider store={store}>
+          <ThemeProvider theme={styleStore}>
+            <Route />
+          </ThemeProvider>
+        </Provider>
+      </div>
     );
   }
 }

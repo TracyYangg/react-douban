@@ -1,7 +1,8 @@
-import { call, fork, select, takeEvery } from "redux-saga/effects";
+import { call, fork, select, takeEvery, put } from "redux-saga/effects";
 import { formValueSelector } from "redux-form";
 import * as api from "./api";
 import { formName } from "./constants";
+import * as actions from "./actions";
 
 function* changeSearchForm({ meta }) {
   if (meta.field !== "search") {
@@ -10,9 +11,12 @@ function* changeSearchForm({ meta }) {
   const state = yield select();
   const selector = formValueSelector(formName);
   const text = selector(state, "search");
-  const { data } = yield call(api.search, { text });
-  console.log(5555);
-  console.log(data);
+  const { data, err } = yield call(api.search, { text });
+  if (data && !err) {
+    yield put(actions.getSearchResultSuccess({ data }));
+  } else {
+    yield put(actions.getSearchResultFailure({ err }));
+  }
 }
 
 function* handleChangeSearch() {

@@ -85,7 +85,7 @@ class HotPlay extends Component {
       <div>
         <HeaderSearch headerHeight={headerHeight} />
         <div style={{ height: this.getScrollHeight(), overflow: "auto" }}>
-          <meta name="referrer" content="never" />
+          
           {get(data, "subjects.length") > 0 &&
             get(data, "subjects").map(item => {
               return (
