@@ -26,3 +26,7 @@ node index.js
 cd react-douban
 npm start
 ```
+
+####运行效果如下
+
+![图片](./image/1.png)

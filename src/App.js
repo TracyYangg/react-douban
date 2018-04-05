@@ -12,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {/* {处理豆瓣图片跨域} */}
         <meta name="referrer" content="never" />
         <Provider store={store}>
           <ThemeProvider theme={styleStore}>
